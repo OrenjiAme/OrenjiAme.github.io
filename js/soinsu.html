@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Java scriptのテスト</title>
+        <title>素因数分解</title>
     </head>
     <body>
         <input type="text" id="inp">
@@ -32,10 +32,16 @@
                 return ans;
             }
             function main(){//ボタンクリック時
-                var num = document.getElementById("inp").value;
-                var result = prime_factorization(num);
-                var ans = num_to_str(result,num);
-                document.getElementById('output').innerHTML = ans;
+                var num = Number(document.getElementById("inp").value);
+                if(isNaN(num)){
+                    document.write("数値を入力してください。")
+                }
+                else{
+                    console.log(num);
+                    var result = prime_factorization(num);
+                    var ans = num_to_str(result,num);
+                    document.getElementById('output').innerHTML = ans;
+                }
             }
             function num_to_str(result,num){//結果整形用
                 var str = String(num) + " = ";
