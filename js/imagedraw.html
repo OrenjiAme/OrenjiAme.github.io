@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像描画</title>
+</head>
+<body>
+    オリジナル要素<br>
+    課題A：気温以外の項目にも対応<br>
+    課題B：乱数お絵かき(場所、長さ、色がランダムな直線を描いてくれる)<br>
+    <input type="button" value="課題A" id="AorB" onclick="change()">←切り替えボタンを使ってください。<br>
+    <hr size="4" color="orange">
+    <div id = "A">
+        <form name = "location">
+            <input type="checkbox" id = "hikone" checked>彦根
+            <input type="checkbox" id = "naha" checked>那覇
+            <input type="checkbox" id = "aba" checked>網走
+        </form>
+        項目：
+        <input type="radio" name="items" id = "sun" value = "0" >日照時間
+        <input type="radio" name="items" id = "rain" value = "1">降水量
+        <input type="radio" name="items" id = "temp" value = "2"checked>気温
+        <input type="radio" name="items" id = "snow" value = "3">積雪量<br>
+        <input type="button" value="リセット" onclick="reset()">
+        <input type="button" value="描画！" onclick="mainA()"><br>
+    </div>
+
+    <div id="B">
+        色：<input type="color" id = "color">
+        タイプ：
+        <input type="radio" name="drawtype" id = "free" checked>フリーハンド
+        <input type="radio" name="drawtype" id = "liner">直線
+        <input type="radio" name="drawtype" id = "rect">矩形<br>
+        <input type="button" value="リセット" onclick="reset()">
+        <input type="button" value="乱数お絵かき" onclick="random_draw()">
+    </div>
+    <canvas id = "hcnv" width="1024" height="500" 
+    onmousemove = "mouseMove()" onmousedown = "mouseB = 1" onmouseup = "mouseB = 0">
+        <style type="text/css">
+            canvas { border: 2px solid orange; }
+        </style>
+    </canvas>
+    <script>
+        document.getElementById("A").style.display = "block";
+        document.getElementById("B").style.display = "none";
+    </script>
+    <hr size="4" color="orange">
+    <script src="imagedraw.js"></script>
+</body>
+</html>
