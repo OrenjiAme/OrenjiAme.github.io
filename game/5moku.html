@@ -5,8 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ｎ目並べ(仮)</title>
     <script src="5moku.js"></script>
+    <link rel="stylesheet" href="design.css">
 </head>
 <body>
-    
+    <h1>縦横斜めに4つコマを並べれば勝ち</h1>
+    <input type="button" value="スタート！" onclick="start()">
+    <input type="button" value="リセット" onclick="start()"><br>
+    <hr>
+    <input type="button" value="選択" onclick="play(0)">
+    <input type="button" value="選択" onclick="play(1)">
+    <input type="button" value="選択" onclick="play(2)">
+    <input type="button" value="選択" onclick="play(3)">
+    <input type="button" value="選択" onclick="play(4)">
+    <input type="button" value="選択" onclick="play(5)">
+    <input type="button" value="選択" onclick="play(6)">
+    <table id = "game">
+        <tr>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+        </tr>
+        <tr>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+        </tr>
+        <tr>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+        </tr>
+        <tr>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+        </tr>
+        <tr>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+        </tr>
+        <tr>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+            <td><span class = "space"></span></td>
+        </tr>
+    </table>
 </body>
 </html>
