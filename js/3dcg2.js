@@ -26,7 +26,7 @@ var earth = planet(texture2,100);
 var sun = planet(texture3,500);
 var moon = planet(texture4,30);
 //初期位置設定
-sun.position.set(0,0,0);
+sun.position.set(100,100,100);
 sun.add(earth);
 earth.position.set(0,0,1000);
 moon.position.set(0,0,150);
@@ -81,6 +81,7 @@ function draw(){
     camera.lookAt(new THREE.Vector3(0, 0, 0));
     var rot1 = rotation(cnt,r1,1);
     var rot2 = rotation(cnt,r2,10);
+    sun.position.set(rot1[0],0,rot1[1]);
     earth.position.set(rot1[0],0,rot1[1]);
     moon.position.set(rot2[0],0,rot2[1]);
     requestAnimationFrame(draw);
