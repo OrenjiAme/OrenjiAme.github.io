@@ -10,7 +10,7 @@ document.body.appendChild(renderer.domElement);
 
 //球体作成メソッド
 function planet(texture,r){
-    var p = new THREE.SphereGeometry(r);
+    var p = new THREE.SphereGeometry(r,40);
     var q = new THREE.MeshStandardMaterial({map:texture,side:THREE.DoubleSide});//裏面も描画
     var sphere = new THREE.Mesh(p,q);
     return sphere;
