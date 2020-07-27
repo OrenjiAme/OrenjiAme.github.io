@@ -1,9 +1,29 @@
-table, td {
-    border: 1px solid black;
-  }
+table{
+  border-collapse:separate;
+  border-spacing: 5px;
+}
+
+table,table td{
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+table td{
+  background-color: #e4d4bc;
+  border:solid 1px #af9d85;
+}
+
+input{
+  background-image: linear-gradient(0deg,chocolate, #eaf6fd);
+  border: chocolate;
+  font-size: large;
+}
+
 .space{
     margin-right: 20px;
     margin-left: 20px;
+    font-size: x-large;
 }
 p.comment{
   border: double 2px;

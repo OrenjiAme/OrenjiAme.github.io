@@ -37,6 +37,7 @@ function write_table(){//配列 game_tableをhtmlに書き込む
 }
 
 function play(n){//ボタンを押したとき、コマを配置する。nは行0~6
+    if(document.getElementById("win").innerHTML != " "){return;}
     var tgt;
     if(turn % 2 == 0)tgt = "o";
     else tgt = "x";
