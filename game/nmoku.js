@@ -28,7 +28,9 @@ function write_table(){//配列 game_tableをhtmlに書き込む
     for(var i = 1; i < 7; i++){
         str += "<tr>";                
         for(var j = 0; j < 7; j++){
-            str += '<td><span class = "space">' + game_table[i][j] + '</span></td>';
+            if(game_table[i][j] == "o"){str += '<td><span class = "o">' + "◯" + '</span></td>';}
+            else if(game_table[i][j] == "x"){str += '<td><span class = "x">' + "✕" + '</span></td>';}
+            else str += '<td><span class = "space"></span></td>';
         }
         str += "</tr>";
     }
