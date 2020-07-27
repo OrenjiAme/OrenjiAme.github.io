@@ -23,9 +23,9 @@ input{
 }
 
 .space{
-    margin-right: 20px;
-    margin-left: 20px;
-    font-size: x-large;
+    margin-right: 15px;
+    margin-left: 15px;
+    font-size: xx-large;
 }
 p.comment{
   border: double 2px;
@@ -38,6 +38,8 @@ p.comment{
 
 .o{
   color: rgb(232, 83, 91);
+  font-weight: bold;
+  font-size: xx-large;
 }
 
 #turnB{
@@ -46,4 +48,6 @@ p.comment{
 
 .x{
   color:rgb(20, 177, 171);
+  font-weight: bold;
+  font-size: xx-large;
 }

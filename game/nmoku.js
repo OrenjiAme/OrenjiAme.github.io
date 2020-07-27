@@ -28,8 +28,8 @@ function write_table(){//配列 game_tableをhtmlに書き込む
     for(var i = 1; i < 7; i++){
         str += "<tr>";                
         for(var j = 0; j < 7; j++){
-            if(game_table[i][j] == "o"){str += '<td><span class = "o">' + "◯" + '</span></td>';}
-            else if(game_table[i][j] == "x"){str += '<td><span class = "x">' + "✕" + '</span></td>';}
+            if(game_table[i][j] == "o"){str += '<td><span class = "o">' + "●" + '</span></td>';}
+            else if(game_table[i][j] == "x"){str += '<td><span class = "x">' + "▲" + '</span></td>';}
             else str += '<td><span class = "space"></span></td>';
         }
         str += "</tr>";
@@ -134,13 +134,13 @@ function check(a,b,tgt){//今置いた位置game_tabel[a][b]から盤面にコ�
 
 function clear(){
     if(turn % 2 == 0){
-        alert("先手oの勝ちです！");
+        alert("先手●の勝ちです！");
         console.log(document.getElementById("win"));
-        document.getElementById("win").innerHTML = "先手oの勝ち";
+        document.getElementById("win").innerHTML = "先手●の勝ち：" + String(turn+1) + "ターン";
     }
     else{
-        alert("後手xの勝ちです！");
-        document.getElementById("win").innerHTML = "後手xの勝ち";
+        alert("後手▲の勝ちです！");
+        document.getElementById("win").innerHTML = "後手▲の勝ち：" + String(turn+1) + "ターン";;
     }
 }
 
