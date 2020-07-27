@@ -5,3 +5,15 @@ table, td {
     margin-right: 20px;
     margin-left: 20px;
 }
+p.comment{
+  border: double 2px;
+  border-color: aqua;
+}
+
+#turnA{
+  color: red;
+}
+
+#turnB{
+  color: blue;
+}

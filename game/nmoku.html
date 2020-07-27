@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ｎ目並べ(仮)</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+    <h1>縦横斜めに4つコマを並べれば勝ち</h1>
+    <p class="comment">コネクトフォーというゲームです。友だちと遊ぶのには使えるかも？<br>
+    CPU対戦機能を追加したい...</p>
+    <div id = "turnA">先手(o)のターンです。</div>
+    <div id = "turnB">後手(x)のターンです。</div>
+    <script>
+        document.getElementById("turnA").style.display = "block";
+        document.getElementById("turnB").style.display = "none";
+    </script>
+    <input type="button" value="リセット" onclick="reset()"><br>
+    <br>
+    <table id = "game">
+        <script>
+            for(var i = 0; i <= 6; i++){
+                document.write('<th><input type="button" value="置く！" onclick="play(' + String(i) + ')"></th>');
+            }
+            for(var i = 1; i <= 6; i++){
+                document.write("<tr>");                
+                for(var j = 1; j <= 7; j++){
+                    document.write('<td><span class = "space"></span></td>');
+                }
+                document.write("</tr>");
+            }
+        </script>
+    </table>
+    <script src="nmoku.js"></script>
+</body>
+</html>
