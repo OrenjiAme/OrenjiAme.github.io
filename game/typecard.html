@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゴボウバース(仮)</title>
+    
+</head>
+<body>
+    友達のゴボウが考えてくれた呼吸方法です。<br>
+    <h1 class = "rule">ルール</h1>
+    <h1 class = "card">カードの強さ</h1>
+    ノーマル → 炎 → 水 → 電気 → 草 → 氷 → 格闘 → 毒 → 地面 → 飛行 → エスパー → 虫 → 岩 → ゴースト → ドラゴン → 悪 → 鋼 → フェアリー →ノーマル<br>
+    <hr>
+    <h2>ゾーン</h2>
+    <div id = "zone"></div>
+    <h2>自分の持ち札</h2>
+    <div id = "mine"></div>
+    <h2>相手の持ち札</h2>
+    <div id = "enemy">？　？　？　？ ？</div>
+    <h2>スコア</h2>
+    自分のスコア<div id = "myscore"></div>
+    相手のスコア<div id = "enemyscore"></div>
+    <script>document.getElementById("enemy").style.display = "none"</script>
+    <input type="button" onclick="battle()" value="対戦！">
+    <script src="typecard.js"></script>
+</body>
+</html>

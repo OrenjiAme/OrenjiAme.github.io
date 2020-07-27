@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ｎ目並べ(仮)</title>
-    <link rel="stylesheet" href="design.css">
+    <link rel="stylesheet" href="nmoku.css">
 </head>
 <body>
     <h1>縦横斜めに4つコマを並べれば勝ち</h1>
@@ -15,8 +15,9 @@
     <script>
         document.getElementById("turnA").style.display = "block";
         document.getElementById("turnB").style.display = "none";
-    </script>
+        </script>
     <input type="button" value="リセット" onclick="reset()"><br>
+    <h2 id="win"> </h2>
     <br>
     <table id = "game">
         <script>
