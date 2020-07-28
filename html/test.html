@@ -3,17 +3,12 @@
 <meta charset="UTF-8">
 <title></title>
 </head>
-<body onload="draw();">
+<body onload="draw('テスト');">
     <canvas id="canvas1" width="500" height="500"></canvas>
-
-<form method="post" name="send_form">
-<input type="text" name="field1" id="fld1" value="" />
-<input type="submit" />
-</form>
-<script type="text/javascript">
-var canvas = undefined;
-function draw(){
-    canvas = document.getElementById('canvas1');
+    <img id="output" src="">
+<script>
+canvas = document.getElementById('canvas1');
+function draw(txt){
     var ctx = canvas.getContext('2d');
     /* Imageオブジェクトを生成 */
     var img = new Image();
@@ -21,13 +16,13 @@ function draw(){
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         ctx.textAlign="center";
         ctx.fillStyle = "black";
-        ctx.font = "30px 'ＭＳ ゴシック'";
-        ctx.fillText("見出しテキスト", canvas.width/2, canvas.height/2);
-        fld1.value = canvas.toDataURL();
+        ctx.font = "70px 'ＭＳ ゴシック'";
+        ctx.fillText(txt, canvas.width/2, canvas.height/2);
     };
     img.src = "5156.png";
+    output.src = canvas.toDataURL();
 }
-draw();
+
 </script>
 </body>
 </html>
