@@ -18,13 +18,14 @@ function draw(){
         ctx.textAlign="center";
         ctx.fillStyle = "black";
         ctx.font = "50px 'ＭＳ ゴシック'";
-        ctx.fillText("見出しテキスト", canvas.width/2, canvas.height);
+        ctx.fillText("見出しテキスト", canvas.width/2, canvas.height/2);
         fld1.src = canvas.toDataURL();
         console.log(canvas.toDataURL());
     };
     img.src = "5156.png";
 }
 draw();
+document.getElementById("canvas1").style.display = "none";
 </script>
 </body>
 </html>
