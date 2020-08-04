@@ -29,10 +29,10 @@ function planet(texture,r){
 
 //看板作成メソッド
 var sign = (a,b,c,texture) => {
-    var geometry = new THREE.BoxGeometry(70, 30, 0.01);
+    var geometry = new THREE.BoxGeometry(100, 300, 0.01);
     var material = new THREE.MeshStandardMaterial( { map: texture } );
     var anotation = new THREE.Mesh( geometry, material );
-    anotation.position.set(a*50,b*50,c*50);
+    anotation.position.set(a*20,b*20,c*20);
     anotation.lookAt(new THREE.Vector3(0,0,0,));
     current.add(anotation);
     //scene.add(anotation);
