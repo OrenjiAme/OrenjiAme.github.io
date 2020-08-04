@@ -156,7 +156,7 @@ function kamon(){
     var x = random_integer(1, 1920);
     var y = random_integer(1, 960);
     var tgt = xy2vec3(x,y);
-    sign(tgt[0], trgt[1], tgt[2], kamon_image);
+    sign(tgt[0], tgt[1], tgt[2], kamon_image);
 }
 
 //ランダムな整数
