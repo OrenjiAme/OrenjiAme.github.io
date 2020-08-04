@@ -8,6 +8,17 @@ camera.position.set(0,0,1000);
 scene.add(light);
 document.body.appendChild(renderer.domElement);
 
+//テクスチャ読み込み
+var URL='https://www.gakujutsu.co.jp/text/isbn978-4-7806-0708-6/file/';
+var texture = [];
+var loader = new THREE.TextureLoader();
+var kamon_image = loader.load("66601.jpg");
+var sign_texture = loader.load(URL + "a1.jpg");
+texture.push( loader.load(URL+ '1.jpg') ); // texture[0]
+texture.push( loader.load(URL+ '2.jpg') ); // texture[1]
+texture.push( loader.load(URL+ '3.jpg') ); // texture[2]
+texture.push( loader.load(URL+ '4.jpg') ); // texture[3]
+
 //球体作成メソッド
 function planet(texture,r){
     var p = new THREE.SphereGeometry(r,40);
@@ -16,14 +27,16 @@ function planet(texture,r){
     return sphere;
 }
 
-//テクスチャ読み込み
-var URL='https://www.gakujutsu.co.jp/text/isbn978-4-7806-0708-6/file/';
-var texture = [];
-var loader = new THREE.TextureLoader();
-texture.push( loader.load(URL+ '1.jpg') ); // texture[0]
-texture.push( loader.load(URL+ '2.jpg') ); // texture[1]
-texture.push( loader.load(URL+ '3.jpg') ); // texture[2]
-texture.push( loader.load(URL+ '4.jpg') ); // texture[3]
+//看板作成メソッド
+var sign = (a,b,c,texture) => {
+    var geometry = new THREE.BoxGeometry(7, 3, 0.01);
+    var material = new THREE.MeshStandardMaterial( { map: texture } );
+    var anotation = new THREE.Mesh( geometry, material );
+    anotation.position.set(a*20,b*20,c*20);
+    anotation.lookAt(new THREE.Vector3(0,0,0,));
+    current.add(anotation);
+    //scene.add(anotation);
+}
 
 var p1 = planet(texture[0],50);
 var p2 = planet(texture[1],50);
@@ -45,6 +58,7 @@ scene.add(p3);
 scene.add(p4);
 
 current.scale.set(100,100,100);
+
 //マウスイベント
 var mouseX = 0, mouseY = 0, mouseB = false;
 
@@ -96,6 +110,27 @@ function detectObject(target_list, exception, u, v ) {
     return null;
 }
 
+function make_image(txt){
+    canvas = document.getElementById('canvas1');
+    var ctx = canvas.getContext('2d');
+    /* Imageオブジェクトを生成 */
+    var img = new Image();
+    img.onload = function() {
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        ctx.textAlign="center";
+        ctx.fillStyle = "black";
+        ctx.font = "60px 'ＭＳ ゴシック'";
+        ctx.fillText(txt, canvas.width/2, canvas.height/2);
+    };
+    img.src = "5156.png";
+    return canvas.toDataURL();
+}
+
+function xy2vec3(x,y){//x,yを緯度経度へ変換し球体の3次元ベクトルへ
+    var theta = 360 * x/1920;
+    var phi = 90 - 180*y/960;
+    return [-Math.cos(theta)*Math.cos(phi),Math.sin(phi),Math.sin(theta)*Math.cos(phi)];
+}
 //描画
 function draw(){
     requestAnimationFrame(draw);
@@ -114,4 +149,20 @@ function draw(){
     p_mouseX = mouseX;
     p_mouseY = mouseY;
 }
+
+function p(a){console.log(a);}
+
+function kamon(){
+    var x = random_integer(1, 1920);
+    var y = random_integer(1, 960);
+    var tgt = xy2vec3(x,y);
+    sign(tgt[0], trgt[1], tgt[2], kamon_image);
+}
+
+//ランダムな整数
+function random_integer(first,end){
+    end -= first;
+    return Math.round(Math.random()*end)+first;
+}
+
 draw();
