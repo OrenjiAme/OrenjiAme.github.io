@@ -1,6 +1,7 @@
 table{
   border-collapse:separate;
   border-spacing: 5px;
+  max-width: 100%;
 }
 
 table,table td{
