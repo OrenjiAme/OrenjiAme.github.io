@@ -1,22 +1,32 @@
-<!DOCTYPE html>
-<!-- saved from url=(0028)https://orenjiame.github.io/ -->
-<html lang="jp"><head>
-    <style type="text/css">
-    h2.f1{color: cyan;}
-    tbody.name{font-size: large,};
-    </style>
-    <title>自己紹介サイト</title>
-</head>
+<html>
+<head><title>Firestore てすと</title></head>
 <body>
-    </tbody></table>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/5LBYNrZ-Gug" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <hr>
-    <h2 class="f1">マイページ</h2>
-    <a href="game/nmoku.html">4目並べゲーム</a><br>
-    <a href="js/soinsu.html">素因数分解</a><br>
-    <a href="js/zeiritu.html">税込計算</a><br>
-    <a href="js/imagedraw.html">画像描画</a><br><br>
-    <a href="js/streetview.html">ストリートビュー</a>
-    <a href="https://atcoder.jp/?lang=ja">AtCoder</a><br>
-    競技プログラミングコンテストのサイトです。<br>
-</body></html>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCbY8Xs17vinfHQ0EzX-tClr08Ea3fTCcE",
+            authDomain: "connect4-c56c8.firebaseapp.com",
+            databaseURL: "https://connect4-c56c8.firebaseio.com",
+            projectId: "connect4-c56c8",
+            storageBucket: "connect4-c56c8.appspot.com",
+            messagingSenderId: "424213236887",
+            appId: "1:424213236887:web:43cb46fd3d570c3101edd2"
+        };
+        // Initialize Firebase
+        var app = firebase.initializeApp(firebaseConfig);
+        var db = firebase.firestore(app);
+
+        function onClick() {
+            db.collection("test").add({
+                hoge: "てすと",
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            });
+        };
+    </script>
+    <button onclick="onClick()">書き込みテスト</button>
+</body>
+</html>
