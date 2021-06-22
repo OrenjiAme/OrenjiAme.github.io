@@ -22,9 +22,10 @@
         }
         var a = document.getElementById("inp").value;
         console.log(a);
-        var l = a.split("　");
+        var l = a.split(",");
         b = shuffle(l);
         console.log(b);
+        document.getElementById("ans").innerText = b;
     }
     </script>
 </body>
