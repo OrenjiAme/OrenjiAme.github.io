@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head><title>Firestore てすと</title></head>
 <body>
@@ -8,24 +9,31 @@
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
-            apiKey: "AIzaSyCbY8Xs17vinfHQ0EzX-tClr08Ea3fTCcE",
-            authDomain: "connect4-c56c8.firebaseapp.com",
-            databaseURL: "https://connect4-c56c8.firebaseio.com",
-            projectId: "connect4-c56c8",
-            storageBucket: "connect4-c56c8.appspot.com",
-            messagingSenderId: "424213236887",
-            appId: "1:424213236887:web:43cb46fd3d570c3101edd2"
+            apiKey: "AIzaSyB0ZAgUHK3pbpHVAZWgsh7ZDEmGhZRpxbA",
+            authDomain: "connect4-3a65a.firebaseapp.com",
+            projectId: "connect4-3a65a",
+            storageBucket: "connect4-3a65a.appspot.com",
+            messagingSenderId: "547328919927",
+            appId: "1:547328919927:web:dd313688f191d84b6a7972",
+            measurementId: "G-CD8CFN5ENV"
         };
         // Initialize Firebase
         var app = firebase.initializeApp(firebaseConfig);
         var db = firebase.firestore(app);
-
+        
         function onClick() {
-            db.collection("test").add({
-                hoge: "てすと",
+            db.collection("actions").add({
+                x:10,
+                table:JSON.stringify([[1,2,3],[2,3,4],[5,6,7]]),
                 createdAt: firebase.firestore.FieldValue.serverTimestamp()
             });
         };
+        db.collection("actions").orderBy("createdAt", "desc").limit(1).onSnapshot(function (querySnapshot) {
+        querySnapshot.forEach(function(queryDocSnapshot) {
+        var data = queryDocSnapshot.data();
+        console.log(data);
+    });
+});
     </script>
     <button onclick="onClick()">書き込みテスト</button>
 </body>

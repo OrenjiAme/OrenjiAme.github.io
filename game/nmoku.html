@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ｎ目並べ(仮)</title>
+    <title>コネ4</title>
     <link rel="stylesheet" href="nmoku.css">
 </head>
 <body>
     <h1>4目並べ(コネクトフォー)</h1>
-    <p class="comment">先手と後手が交互にコマを下から積み重ねて、先に縦・横・斜めどれかに4つ並べた方が勝ちです。</p>
+    <p class="comment">先手と後手が交互にコマを一番下から積み重ねて、先に縦・横・斜めどれかに4つ並べた方が勝ちです。</p>
+    <h2 id="win"> </h2>
+    <input type="button" value="スタート！" onclick="reset()"><br>
     <div id = "turnA">先手(●)のターンです。</div>
     <div id = "turnB">後手(▲)のターンです。</div>
     <script>
         document.getElementById("turnA").style.display = "block";
         document.getElementById("turnB").style.display = "none";
-        </script>
-    <input type="button" value="リセット" onclick="reset()"><br>
-    <h2 id="win"> </h2>
+    </script>
     <br>
     <table id = "game">
         <script>
@@ -32,28 +32,25 @@
             }
         </script>
     </table>
-    対戦機能を追加したい...友だちと遊ぶのに使えるレベルにはしたいですね。<br>
-    引き分けにするのは意外と難しいです。良かったら考えてみてください。<br>
-    <script src="nmoku.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    
     <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
-    <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyCbY8Xs17vinfHQ0EzX-tClr08Ea3fTCcE",
-        authDomain: "connect4-c56c8.firebaseapp.com",
-        databaseURL: "https://connect4-c56c8.firebaseio.com",
-        projectId: "connect4-c56c8",
-        storageBucket: "connect4-c56c8.appspot.com",
-        messagingSenderId: "424213236887",
-        appId: "1:424213236887:web:43cb46fd3d570c3101edd2"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-</script>
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+        
+        <script>
+            var firebaseConfig = {
+            apiKey: "AIzaSyB0ZAgUHK3pbpHVAZWgsh7ZDEmGhZRpxbA",
+            authDomain: "connect4-3a65a.firebaseapp.com",
+            projectId: "connect4-3a65a",
+            storageBucket: "connect4-3a65a.appspot.com",
+            messagingSenderId: "547328919927",
+            appId: "1:547328919927:web:dd313688f191d84b6a7972",
+            measurementId: "G-CD8CFN5ENV"
+            };
+        </script>
+        <script src="nmoku.js"></script>
 </body>
 </html>

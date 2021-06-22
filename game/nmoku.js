@@ -1,10 +1,22 @@
 //使うグローバル変数
-var turn = 0//ターン数　偶奇によって順番を管理する。
+var turn = 0//ターン数
+var turnAorB//今どちらのターンなのか
 var game_table = get_table();//盤面　テーブルの要素をリスト[i][j]に格納した。
 var location_i//コマを置いた位置iを記録しておく。探索用
 var location_j//コマを置いた位置jを記録しておく。探索用
+var flag = false;//スタートを押したかどうか
+var app = firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore(app);
 
-function reset(){document.location.reload();}//ページ更新
+function reset(){
+    document.location.reload();
+    db.collection("actions").add({
+        turn_count:0,
+        turn:"A",//先行(A)or後攻(B)どちらを選んだか
+        table:JSON.stringify(game_table),
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+    }//ページ更新
 
 function get_table(){//テーブルの状態を取得 1行目はボタンが入っている
     var game_table = [];
@@ -138,11 +150,11 @@ function clear(){
     if(turn % 2 == 0){
         alert("先手●の勝ちです！");
         console.log(document.getElementById("win"));
-        document.getElementById("win").innerHTML = "先手●の勝ち：" + String(turn+1) + "ターン";
+        document.getElementById("win").innerHTML = "先手●の勝ち：" + String(turn+1) + "ターン。スタートを押して下さい";
     }
     else{
         alert("後手▲の勝ちです！");
-        document.getElementById("win").innerHTML = "後手▲の勝ち：" + String(turn+1) + "ターン";;
+        document.getElementById("win").innerHTML = "後手▲の勝ち：" + String(turn+1) + "ターン。スタートを押して下さい";;
     }
 }
 

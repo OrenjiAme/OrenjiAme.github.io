@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タイトル並び替え</title>
+</head>
+<body>
+    空白区切りで入力して下さい。
+    <input type="text", id = "inp">
+    <div id = "ans", id ="ans"></div>
+    <button onclick="main()">計算</button>
+    <script>
+        function main(){
+        const shuffle = ([...array]) => {
+        for (let i = array.length - 1; i >= 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+        }
+        var a = document.getElementById("inp").value;
+        console.log(a);
+        var l = a.split("　");
+        b = shuffle(l);
+        console.log(b);
+    }
+    </script>
+</body>
+</html>
