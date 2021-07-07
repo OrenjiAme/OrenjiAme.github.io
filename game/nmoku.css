@@ -38,6 +38,7 @@ p.comment{
 }
 
 .o{
+  font-family: Yu Gothic;
   color: rgb(232, 83, 91);
   font-weight: bold;
   font-size: xx-large;
@@ -48,6 +49,7 @@ p.comment{
 }
 
 .x{
+  font-family:Meiryo UI;
   color:rgb(20, 177, 171);
   font-weight: bold;
   font-size: xx-large;
