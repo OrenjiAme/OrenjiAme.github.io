@@ -7,7 +7,7 @@ var app = firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore(app);
 
 //新しいドキュメントの更新を監視
-db.collection("ncon4").orderBy("createdAt", "desc").limit(1).onSnapshot(function (querySnapshot) {
+db.collection("game").orderBy("createdAt", "desc").limit(1).onSnapshot(function (querySnapshot) {
     querySnapshot.forEach(function(doc){
         var data = doc.data();
         turn = data.turn_count;
@@ -20,7 +20,7 @@ db.collection("ncon4").orderBy("createdAt", "desc").limit(1).onSnapshot(function
 
 function reset(){
     game_table = Array.from(new Array(7), () => new Array(7).fill(0));
-    db.collection("ncon4").add({
+    db.collection("game").add({
         turn_count:0,
         table:JSON.stringify(game_table),
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
