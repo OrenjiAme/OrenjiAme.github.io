@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=800">
+    <title>電脳麻将: 牌画入力</title>
+    <meta name="description" content="簡単な記法で牌画を入力">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" type="text/css" href="css/majiang-1.5.6.css">
+    <script src="js/majiang-1.5.6.js" defer></script>
+    <script src="js/paiga-1.5.6.js" defer></script>
+  </head>
+  <body class="demo">
+    <div id="loaderr" style="display: none"></div>
+    <script>
+      window.onload = function(){
+        if (typeof Majiang === 'undefined') {
+          var text = document.createTextNode(
+                          'プログラムのロードでエラーが発生しました。'
+                        + 'お使いのブラウザでは実行できない可能性があります。'
+                        + 'リロードして問題が解決しない場合は、'
+                        + 'Google Chromeなど最新のブラウザでアクセスしてみてください。');
+          var elem = document.getElementById('loaderr');
+          elem.appendChild(text);
+          elem.removeAttribute('style');
+        }    
+      }
+    </script>
+    <div id="navi"><a href="../">Home</a> |
+      <a href="index.html">電脳麻将</a> |
+      <a href="autoplay.html">自動対戦</a> |
+      <a href="paipu.html">牌譜</a> |
+      <a href="paili.html">牌理</a> |
+      <a href="hule.html">点計算</a> |
+      <a href="dapai.html">何切る</a> |
+      <a href="paiga.html">牌画</a> |
+      <a href="https://github.com/kobalab/Majiang" target="_blank">GitHub</a>
+    </div>
+    <div class="version"></div>
+    <form>
+      <textarea class="paiga" rows="10">このような記述ができます。
+{s067z1 z1}(ツモ) {p2-13} {z66=6-6} {_z77_} {  }(ドラ){m1}
+</textarea><br>
+      <input name="size" type="radio" value="24x34" checked>大(24x34) 
+      <input name="size" type="radio" value="19x26">中(19x26) 
+      <input name="size" type="radio" value="16x23">小(16x23) 
+      <input type="submit" value="変換">
+      <input type="reset" value="消去">
+    </form>
+    <hr>
+    <div id="paiga">
+      <div></div>
+      <textarea class="paiga" rows="20"></textarea>
+    </div>
+  </body>
+</html>
