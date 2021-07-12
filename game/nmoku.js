@@ -15,7 +15,18 @@ db.collection("game").orderBy("createdAt", "desc").limit(1).onSnapshot(function 
         //game_table = data.table;
     });
     write_table();
+    
 });
+
+function reverse(){
+    var tmp_table = [[0,0,0,0,0,0,0]];
+    for(var i = 0; i < 6; i++){
+        tmp_table.push(game_table.pop().reverse())
+    }
+    game_table = tmp_table;
+    console.log(game_table);
+    write_table();
+}
 
 function reset(){
     game_table = Array.from(new Array(7), () => new Array(7).fill(0));
@@ -30,15 +41,18 @@ function reset(){
 function write_table(){//配列 game_tableをhtmlに書き込む
     table = document.getElementById("game");
     var str = "";
-    var moji = ["ま", "ん", "こ", "お", "ち","う"];
+    /*
+    var moji = ["💩", "🐟", "🐧", "😉", "🐘"];
+    moji[Math.floor(Math.random() * moji.length)]
+    */
     for(var i = 0; i <= 6; i++){
         str += '<th><input type="button" value="置く！" onclick="play(' + String(i) + ')"></th>';
     }
     for(var i = 1; i < 7; i++){
         str += "<tr>";                
         for(var j = 0; j < 7; j++){
-            if(game_table[i][j] == 1){str += '<td><span class = "o">' + moji[Math.floor(Math.random() * moji.length)] + '</span></td>';}
-            else if(game_table[i][j] == 2){str += '<td><span class = "x">' + moji[Math.floor(Math.random() * moji.length)] + '</span></td>';}
+            if(game_table[i][j] == 1){str += '<td><span class = "o">' + "💩" + '</span></td>';}
+            else if(game_table[i][j] == 2){str += '<td><span class = "x">' + "🐧" + '</span></td>';}
             else str += '<td><span class = "space"></span></td>';
         }
         str += "</tr>";
@@ -162,12 +176,4 @@ function clear(){
         document.getElementById("win").innerHTML = "後手の勝ち：" + String(turn+1) + "ターン。スタートを押して下さい";;
     }
     reset();
-}
-
-function print(list){
-    var str = "";
-    for(let i in list){
-        str += list[i] + " ";
-    }
-    return str;
 }
