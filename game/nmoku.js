@@ -15,17 +15,22 @@ db.collection("game").orderBy("createdAt", "desc").limit(1).onSnapshot(function 
         //game_table = data.table;
     });
     write_table();
-    
 });
 
 function reverse(){
     var tmp_table = [[0,0,0,0,0,0,0]];
     for(var i = 0; i < 6; i++){
-        tmp_table.push(game_table.pop().reverse())
+        tmp_table.push(game_table.pop().reverse());
     }
     game_table = tmp_table;
-    console.log(game_table);
-    write_table();
+    write_table(); 
+    write_db();                                                           s
+}
+
+function gravity(){
+    var tmp = [[],[],[],[],[],[],[]]
+    for(var i = 0; i < tmp.length;i++){
+    }
 }
 
 function reset(){
@@ -51,7 +56,7 @@ function write_table(){//配列 game_tableをhtmlに書き込む
     for(var i = 1; i < 7; i++){
         str += "<tr>";                
         for(var j = 0; j < 7; j++){
-            if(game_table[i][j] == 1){str += '<td><span class = "o">' + "💩" + '</span></td>';}
+            if(game_table[i][j] == 1){str += '<td><span class = "o">' + "🐟" + '</span></td>';}
             else if(game_table[i][j] == 2){str += '<td><span class = "x">' + "🐧" + '</span></td>';}
             else str += '<td><span class = "space"></span></td>';
         }
