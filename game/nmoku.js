@@ -24,7 +24,7 @@ function reverse(){
     }
     game_table = tmp_table;
     write_table(); 
-    write_db();                                                           s
+    write_db();                                                     s
 }
 
 function gravity(){
