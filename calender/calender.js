@@ -2,6 +2,7 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d'); 
 let x = 0;
 let y = 0;
+const hist = [];
 
 let imagePath = "8.png";
 draw(canvas,imagePath);
@@ -16,6 +17,8 @@ function onClick(e) {
     console.log(str);
     ctx.font = "20px serif";
     ctx.fillText(str,x,y);
+    const a = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    console.log(a);
 }
 
 function draw(canvas,imagePath){
@@ -29,3 +32,9 @@ function draw(canvas,imagePath){
     image.src = imagePath;
 }
 
+function redo(){
+    const id = history.pop();
+    if(id){
+        ctx.putImageData(id, 0, 0);
+    }
+}
