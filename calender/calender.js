@@ -1,10 +1,12 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d'); 
+
 let x = 0;
 let y = 0;
-const hist = [];
+var bgColor = "rgb(0,0,0)";
+ctx.fillStyle = bgColor;
+let imagePath = "10to12.png";
 
-let imagePath = "8.png";
 draw(canvas,imagePath);
 
 canvas.addEventListener('click', onClick, false);
@@ -32,9 +34,22 @@ function draw(canvas,imagePath){
     image.src = imagePath;
 }
 
-function redo(){
-    const id = history.pop();
-    if(id){
-        ctx.putImageData(id, 0, 0);
-    }
+function gorilla(){
+    var adjective = ["エロ","眠たげな","お腹痛い","メガネ","本物の","変態","可愛い","絶倫","王子の"]
+    var name = "🦍";
+    document.getElementById("name").value = adjective[Math.floor(Math.random() * adjective.length)]+name;
 }
+
+/*
+function download(){
+    var peint = document.getElementById("canvas");
+    var data = peint.toDataURL("image/jpeg");
+    document.getElementById("download").href = base64;
+}
+*/
+
+$("#download").click(function(){
+    cvs = document.getElementById('canvas');
+    var base64 = cvs.toDataURL("image/jpeg");
+    document.getElementById("download").href = base64;
+  });

@@ -2,14 +2,17 @@
 <html lang="jp">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>あそぼ！</title>
+    <title>あ</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 </body>
-<p>なまえ<input type="text" id = "name"></p>
-<button onclick="redo()">もどる</button>
-<canvas id="canvas"></canvas>
+名前を入力して、カレンダーをタッチすると、その文字が入力されます。<br>
+戻る機能をつくっていないので一発勝負です。ページを更新すると初期化されます。<br>
+<button onclick="gorilla()">杉山におまかせ！</button>
+<p>Name<input type="text" id = "name"></p>
+
+<canvas id="canvas"></canvas><br>
+<a id="download" href="#" download="canvas.jpg">ダウンロード</a>
 <script src = "calender.js"></script>
 
 </body>
