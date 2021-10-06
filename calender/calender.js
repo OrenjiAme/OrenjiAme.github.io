@@ -21,8 +21,6 @@ function onClick(e) {
     console.log(str);
     ctx.font = "20px serif";
     ctx.fillText(str,x,y);
-    const a = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    console.log(a);
 }
 
 function draw(canvas,imagePath){
