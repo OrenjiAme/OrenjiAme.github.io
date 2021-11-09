@@ -5,7 +5,7 @@ let x = 0;
 let y = 0;
 var bgColor = "rgb(0,0,0)";
 ctx.fillStyle = bgColor;
-let imagePath = "12.png";
+let imagePath = "11.png";
 var hist = [];
 var cnt = 0;
 
