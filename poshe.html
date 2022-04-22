@@ -1,0 +1,43 @@
+<title>付箋型タスク管理</title>
+<link rel="stylesheet" href="poshe.css">
+<script src="jquery-3.6.0.min.js"></script>
+
+<p id="RealtimeClockArea"><button onclick="showDate()">日時表示</button></p>
+
+期限<input id="date" type="date"value="2022-04-21"><input id="input_time" type="time" value="18:00">　内容<input id="text" type="text" value=""><button onclick="regit()">登録</button>
+
+<h3>【未割当】</h3>
+<ul class="drag-list" id="unallocated">
+	<li style="border:0;list-style-type:none;">&nbsp;</li>
+</ul>
+
+<h3>【午前】</h3>
+<ul class="drag-list" id ="am">
+	<li style="border:0;list-style-type:none;">&nbsp;</li>
+</ul>
+
+<h3>【午後】</h3>
+<ul class="drag-list" id="pm">
+	<li style="border:0;list-style-type:none;">&nbsp;</li>
+</ul>
+
+<h3>【明日以降】</h3>
+<ul class="drag-list" id="tomorrow">
+	<li style="border:0;list-style-type:none;">&nbsp;</li>
+</ul>
+
+<h3>【完了済み】</h3>
+<ul class="drag-list" id="finished">
+	<li style="border:0;list-style-type:none;">&nbsp;</li>
+</ul>
+
+<h3>ゴミ箱(保存されません)</h3>
+<ul class="drag-list" id="dustbox">
+	<li style="border:0;list-style-type:none;">&nbsp;</li>
+</ul>
+<button onclick="make_savearray()">保存</button>
+<br>
+<br>
+ブラウザのCookieを使用します。動作確認環境 Google Chrome 100.0.4896.127(Official Build)(64 bit)
+
+<script src="poshe.js"></script>

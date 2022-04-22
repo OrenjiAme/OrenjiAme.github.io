@@ -1,0 +1,7 @@
+.drag-list {
+    list-style:none;
+    position: relative;
+    margin: 1em 0;
+    padding: 0.5em 0.5em;
+    border: solid 2px #62c1ce;
+}
