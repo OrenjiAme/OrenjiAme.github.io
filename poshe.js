@@ -1,32 +1,77 @@
 var cnt = 0;
 
+//現在日時を初期値に設定
+window.addEventListener('load', () => {
+	const now = new Date();
+	now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+	document.getElementById('date').value = now.toISOString().slice(0, -8);
+});
+
 function make_savearray(){
 	const target_id = ["unallocated","am","pm","finished", "tomorrow"]
-	var result = {};
-	var index = 0;
-	const target_data = document.getElementsByClassName("drag-list");
-	Array.prototype.forEach.call(target_data,(i,j) => {
-		result[i] = [];
-		Array.prototype.forEach.call(i.children,k => {
-			console.log(k.className);
-		});
+	var result = {"unallocated" : [], "am" : [], "pm" : [],
+"finished" : [], "tomorrow" : []};
+	target_id.forEach(id =>{
+		var temp = document.getElementById(id);
+		temp.querySelectorAll(".elements").forEach(i =>
+		result[id].push(i.textContent));	
 	});
-	console.log(result);
-}
-
-function load_cookie(){
-	
+	//console.log(result);
+	return result;
 }
 
 function save_cookie(save_array){
-	
+	const result = make_savearray();
+	console.log(result);
+	const setCookie = (name, json)=>{
+		let cookie = '';
+		let expire = '';
+		let period = '';
+		//Cookieの保存名と値を指定
+		cookies = name + '=' + JSON.stringify(json) + ';';
+		//Cookieを保存するパスを指定
+		cookies += 'path=/;';
+		//Cookieを保存する期間を指定
+		period = 365 * 5; //保存日数 2038年問題に注意
+		expire = new Date();
+		expire.setTime(expire.getTime() + 1000 * 3600 * 24 * period);
+		expire.toUTCString();
+		cookies += 'expires=' + expire + ';';
+		//Cookieを保存する
+		document.cookie = cookies;
+	};
+	setCookie("schejule",result);
+	console.log(document.cookie);
 }
 
-
+function load_cookie(){
+	const getCookie = ()=>{
+		let cookies = '';
+		let cookieArray = new Array();
+		let result = new Array();
+		//Cookieを取得する
+		cookies = document.cookie;
+		//Cookieを配列に分割してJSONに変換する
+		if(cookies){
+			cookieArray = cookies.split(';');
+			cookieArray.forEach(data => {
+				data = data.split('=');
+				//data[0]: Cookieの名前（例では「user」）
+				//data[1]: Cookieの値（例では「json」）
+				result[data[0]] = JSON.parse(data[1]);
+			});
+		}
+		return result;
+	}
+	
+	console.log(getCookie());
+}
+load_cookie();
 function regit(){
 	var result = []
-	const tgt = ["date","input_time","text"]
+	const tgt = ["date","title","text"]
 	tgt.forEach(element => result.push(document.getElementById(element).value));
+	//console.log(Date(result[0]));
 	result[0] = result[0].replace("2022-","").replace("-","/").replace(/^0+/, '');
 	return make_li(result)
 }
@@ -86,9 +131,9 @@ function showClock() {
    	var nowHour = set2fig( nowTime.getHours() );
 	var nowMin  = set2fig( nowTime.getMinutes() );
    	var nowSec  = set2fig( nowTime.getSeconds() );
-   	var msg = "現在、" + date + nowHour + "時" + nowMin + "分" + nowSec + "秒です。";
+   	var msg = "現在、" + date + nowHour + "時" + nowMin + "分" + "です。";
    	document.getElementById("RealtimeClockArea").innerHTML = msg;
-   	setInterval('showClock()',1000);
+   	setInterval('showClock()',60 * 1000);
 }
 
 function main(){
@@ -119,4 +164,5 @@ document.querySelectorAll('.drag-list li').forEach (elm => {
 });
 }
 
+showDate();
 main();

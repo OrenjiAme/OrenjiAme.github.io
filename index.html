@@ -2,9 +2,15 @@
 <link rel="stylesheet" href="poshe.css">
 <script src="jquery-3.6.0.min.js"></script>
 
-<p id="RealtimeClockArea"><button onclick="showDate()">日時表示</button></p>
+<div id="RealtimeClockArea"></div>
 
-期限<input id="date" type="date"value="2022-04-21"><input id="input_time" type="time" value="18:00">　内容<input id="text" type="text" value=""><button onclick="regit()">登録</button>
+<details open>
+	<summary>入力欄を折り畳む</summary>
+	期限<input id="date" type="datetime-local">
+	タイトル<input id="title" type="text" value="" size="30">
+	<button onclick="regit()">登録</button><button onclick="save_cookie()">保存</button><br>
+	<textarea id="text" placeholder="ここに詳細を入力してください。" rows="3"></textarea>
+</details>
 
 <h3>【未割当】</h3>
 <ul class="drag-list" id="unallocated">
@@ -35,9 +41,12 @@
 <ul class="drag-list" id="dustbox">
 	<li style="border:0;list-style-type:none;">&nbsp;</li>
 </ul>
-<button onclick="make_savearray()">保存</button>
+
 <br>
-<br>
-ブラウザのCookieを使用します。動作確認環境 Google Chrome 100.0.4896.127(Official Build)(64 bit)
+
+<input type="checkbox" id="switch1">オートセーブ機能(実験的)<br>
+<input type="checkbox" checked="true">現在の日時・時刻を表示する<br>
+<input type="checkbox">詳細を常に表示する<br>
+保存にはブラウザのCookieを使用します。
 
 <script src="poshe.js"></script>
