@@ -59,7 +59,7 @@ function getCookie(){
 		return result;
 		console.log(getCookie());
 }
-	
+getCookie();
 
 
 function setschedule(cookie_array){
