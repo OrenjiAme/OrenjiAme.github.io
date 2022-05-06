@@ -189,12 +189,10 @@ function set_dragevent(){
 		};
 	});
 	let autosave = document.getElementById("autosave").checked;
-	console.log(autosave);
 	if(autosave){save_cookie()};
 }
 
 $('#showdate').click(function() {
-	console.log("a");
 	if(this.checked){$("#datearea").show()}
 	else{$("#datearea").hide();}
 });
