@@ -71,9 +71,12 @@ function load_cookie(){
 
 function setschejule(cookie_array){
 	target_id.forEach(id => {
+		/*
 		cookie_array[id].forEach(i =>{
 			document.getElementById(id).insertBefore(i,0);
 		});
+		*/
+		console.log(cookie_array[id]);
 	});
 }
 
