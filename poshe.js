@@ -41,11 +41,11 @@ function setCookie(name, json){
 function save_cookie(save_array){
 	const result = make_savearray();
 	//console.log(result);
-	setCookie("schedule",result);
+	set_Cookie("schedule",result);
 	//console.log(document.cookie);
 }
 
-function getCookie(){
+function get_Cookie(){
 		let cookies = '';
 		let result = {};
 		cookies = document.cookie;
@@ -61,7 +61,7 @@ function getCookie(){
 		return result
 }
 
-function setschedule(cookie_array){
+function set_schedule(cookie_array){
 	schedule_array = cookie_array["schedule"];
 	target_id.forEach(id => {
 		T_array = schedule_array[id].reverse()
@@ -76,12 +76,12 @@ function get_options(){
 
 }
 
-function saveOptions(){
+function save_options(){
 	let options_array = get_options()
 	setCookie("options",options_array);
 }
 
-function setOptions(cookie_array){
+function set_options(cookie_array){
 	options_array = cookie_array["options"];
 }
 
@@ -169,21 +169,20 @@ function set_dragevent(){
 		};
 		
 		elm.ondragleave = function () {
-		this.style.borderTop = '';
-	};
-	
-	elm.ondrop = function () {
-		event.preventDefault();
-		let id = event.dataTransfer.getData('text/plain');
-		let elm_drag = document.getElementById(id);
-		//console.log(this.className);
-		this.parentNode.insertBefore(elm_drag, this);
-		this.style.borderTop = '';
-	};
-	
-});
+			this.style.borderTop = '';
+		};
+		elm.ondrop = function () {
+			event.preventDefault();
+			let id = event.dataTransfer.getData('text/plain');
+			let elm_drag = document.getElementById(id);
+			//console.log(this.className);
+			this.parentNode.insertBefore(elm_drag, this);
+			this.style.borderTop = '';
+		};
+	});
+	save_cookie();
 }
 
 showDate();
-setschedule(getCookie());
+set_schedule(get_Cookie());
 set_dragevent();
