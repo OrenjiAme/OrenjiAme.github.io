@@ -186,9 +186,16 @@ function set_dragevent(){
 
 $('#showdate').click(function() {
 	console.log("a");
-	if(this.checked){$("#datearea").hide()}
-	else{$("#datearea").hide()}
+	if(this.checked){$("#datearea").show()}
+	else{$("#datearea").hide();}
 });
+
+/*
+$('#details').click(function() {
+	if(this.checked){$("#datearea").show();}
+	else{$("#datearea").hide();}
+});
+*/
 
 showDate();
 set_schedule(get_Cookie());
