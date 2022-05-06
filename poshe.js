@@ -44,8 +44,7 @@ function save_cookie(save_array){
 	console.log(document.cookie);
 }
 
-function load_cookie(){
-	const getCookie = ()=>{
+function getCookie(){
 		let cookies = '';
 		let cookieArray = new Array();
 		let result = new Array();
@@ -62,11 +61,9 @@ function load_cookie(){
 			});
 		}
 		return result;
-	}
-	
-	//console.log(getCookie());
-	setschejule(getCookie());
+		//console.log(getCookie());
 }
+	
 
 
 function setschejule(cookie_array){
@@ -179,5 +176,5 @@ function main(){
 }
 
 showDate();
-load_cookie();
+setschejule(getCookie());
 main();
