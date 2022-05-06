@@ -56,8 +56,8 @@ function getCookie(){
 				result[data[0]] = JSON.parse(data[1]);
 			});
 		}
+		console.log(result);
 		return result;
-		console.log(getCookie());
 }
 getCookie();
 
@@ -171,5 +171,4 @@ function main(){
 }
 
 showDate();
-setschedule(getCookie());
 main();
