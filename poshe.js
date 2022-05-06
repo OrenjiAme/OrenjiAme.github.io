@@ -20,7 +20,7 @@ function make_savearray(){
 	return result;
 }
 
-function setCookie(name, json){
+function set_Cookie(name, json){
 	let cookie = '';
 	let expire = '';
 	let period = '';
@@ -180,6 +180,8 @@ function set_dragevent(){
 			this.style.borderTop = '';
 		};
 	});
+	let autosave = document.getElementById()
+	if(document)
 	save_cookie();
 }
 
