@@ -56,8 +56,7 @@ function getCookie(){
 				result[data[0]] = JSON.parse(data[1]);
 			});
 		}
-		console.log(result);
-		return result;
+		console.log(result["schedule"]);
 }
 getCookie();
 
