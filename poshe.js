@@ -176,6 +176,5 @@ function main(){
 }
 
 showDate();
-console.log(document.cookie);
 setschejule(getCookie());
 main();
