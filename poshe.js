@@ -41,7 +41,7 @@ function save_cookie(save_array){
 		document.cookie = cookies;
 	};
 	setCookie("schedule",result);
-	console.log(document.cookie);
+	//console.log(document.cookie);
 }
 
 function getCookie(){
@@ -73,7 +73,7 @@ function setschedule(cookie_array){
 			document.getElementById(id).insertBefore(i,0);
 		});
 		*/
-		console.log(cookie_array["schedule"]);
+		console.log(cookie_array);
 	});
 }
 
