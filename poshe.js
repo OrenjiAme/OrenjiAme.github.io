@@ -73,7 +73,6 @@ function set_schedule(cookie_array){
 }
 
 function get_options(){
-
 }
 
 function save_options(){
@@ -152,7 +151,7 @@ function showClock() {
 	let nowMin  = set2fig( nowTime.getMinutes() );
 	let nowSec  = set2fig( nowTime.getSeconds() );
 	let msg = "現在、" + date + nowHour + "時" + nowMin + "分" + "です。";
-	document.getElementById("RealtimeClockArea").innerHTML = msg;
+	document.getElementById("datearea").innerHTML = msg;
 	setInterval('showClock()',60 * 1000);
 }
 
@@ -184,6 +183,12 @@ function set_dragevent(){
 	console.log(autosave);
 	if(autosave){save_cookie()};
 }
+
+$('#showdate').click(function() {
+	console.log("a");
+	if(this.checked){$("#datearea").hide()}
+	else{$("#datearea").hide()}
+});
 
 showDate();
 set_schedule(get_Cookie());
