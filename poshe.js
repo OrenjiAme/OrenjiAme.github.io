@@ -73,7 +73,7 @@ function setschejule(cookie_array){
 			document.getElementById(id).insertBefore(i,0);
 		});
 		*/
-		console.log(id);//,cookie_array[id]);
+		console.log(cookie_array);
 	});
 }
 
