@@ -40,7 +40,7 @@ function save_cookie(save_array){
 		//Cookieを保存する
 		document.cookie = cookies;
 	};
-	setCookie("schejule",result);
+	setCookie("schedule",result);
 	console.log(document.cookie);
 }
 
@@ -66,14 +66,14 @@ function getCookie(){
 	
 
 
-function setschejule(cookie_array){
+function setschedule(cookie_array){
 	target_id.forEach(id => {
 		/*
 		cookie_array[id].forEach(i =>{
 			document.getElementById(id).insertBefore(i,0);
 		});
 		*/
-		console.log(cookie_array[0]);
+		console.log(cookie_array["schedule"]);
 	});
 }
 
