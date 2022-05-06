@@ -56,18 +56,16 @@ function getCookie(){
 				result[data[0]] = JSON.parse(data[1]);
 			});
 		}
-		console.log(result["schedule"]);
+		//console.log(result["schedule"]);
+		return result
 }
-getCookie();
-
 
 function setschedule(cookie_array){
+	cookie_array = cookie_array["schedule"];
 	target_id.forEach(id => {
-		/*
 		cookie_array[id].forEach(i =>{
 			document.getElementById(id).insertBefore(i,0);
 		});
-		*/
 	});
 }
 
