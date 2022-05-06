@@ -182,5 +182,5 @@ function main(){
 }
 
 showDate();
-setschedule();
+setschedule(getCookie());
 main();
