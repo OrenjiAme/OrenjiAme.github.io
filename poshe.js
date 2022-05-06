@@ -57,7 +57,7 @@ function getCookie(){
 			});
 		}
 		return result;
-		//console.log(getCookie());
+		console.log(getCookie());
 }
 	
 
@@ -70,7 +70,6 @@ function setschedule(cookie_array){
 		});
 		*/
 	});
-	cookie_array.forEach(i => console.log(i));
 }
 
 function regit(){
