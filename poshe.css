@@ -7,3 +7,8 @@
 }
 
 textarea{height: 46px;width: 468px;}
+
+body {
+    font-family: "Helvetica Neue", 
+                 "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
