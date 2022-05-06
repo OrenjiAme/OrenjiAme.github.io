@@ -64,10 +64,11 @@ function getCookie(){
 function setschedule(cookie_array){
 	schedule_array = cookie_array["schedule"];
 	target_id.forEach(id => {
-		schedule_array[id].forEach(i =>{
-			document.getElementById(id).insertBefore(i,0);
+		schedule_array[id].forEach(text =>{
+			make_li(text,id);
 		});
 	});
+	set_dragevent();
 }
 
 function get_options(){
@@ -89,10 +90,11 @@ function regit(){
 	tgt.forEach(element => result.push(document.getElementById(element).value));
 	//console.log(Date(result[0]));
 	result[0] = result[0].replace("2022-","").replace("-","/").replace(/^0+/, '').replace("T","");
-	return make_li(result)
+	make_li(result,"unallocated");
+	set_dragevent();
 }
 
-function make_li(result){
+function make_li(result,id_name){
 	let li_object = document.createElement("li");
 	li_object.id = ++cnt;
 	li_object.className = "elements";
@@ -103,7 +105,7 @@ function make_li(result){
 	li_checkbox.type = "checkbox";
 	li_object.appendChild(li_checkbox);
 	li_object.appendChild(li_text);
-	const tgt = document.getElementById("unallocated");
+	const tgt = document.getElementById(id_name);
 	tgt.insertBefore(li_object,tgt.firstChild);
 	$('#chkbx').click(function() {
 		if(this.checked){
@@ -116,7 +118,6 @@ function make_li(result){
 		}
 
 	});
-	main();
 }
 
 function set2fig(num) {
@@ -153,7 +154,7 @@ function showClock() {
 	setInterval('showClock()',60 * 1000);
 }
 
-function main(){
+function set_dragevent(){
 	document.querySelectorAll('.drag-list li').forEach (elm => {
 		elm.ondragstart = function () {
 			//console.log(elm);
@@ -183,4 +184,4 @@ function main(){
 
 showDate();
 setschedule(getCookie());
-main();
+set_dragevent();
