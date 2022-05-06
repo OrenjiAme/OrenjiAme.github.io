@@ -79,10 +79,9 @@ function get_options(){
 		let flag = document.getElementById(id).checked;
 		result[id] = flag;
 	});
-	console.log(result);
+	//console.log(result);
 	return result
 }
-get_options();
 
 function save_options(){
 	let options_array = get_options()
@@ -189,7 +188,10 @@ function set_dragevent(){
 		};
 	});
 	let autosave = document.getElementById("autosave").checked;
-	if(autosave){save_cookie()};
+	if(autosave){
+		save_cookie();
+		save_options();
+	};
 }
 
 $('#showdate').click(function() {
