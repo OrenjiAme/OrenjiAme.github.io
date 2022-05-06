@@ -90,6 +90,7 @@ function regit(){
 	tgt.forEach(element => result.push(document.getElementById(element).value));
 	//console.log(Date(result[0]));
 	result[0] = result[0].replace("2022-","").replace("-","/").replace(/^0+/, '').replace("T","");
+	result.join(" ");
 	make_li(result,"unallocated");
 	set_dragevent();
 }
@@ -99,7 +100,7 @@ function make_li(result,id_name){
 	li_object.id = ++cnt;
 	li_object.className = "elements";
 	li_object.draggable = true;
-	const li_text = document.createTextNode(result.join(" "));
+	const li_text = document.createTextNode(result);
 	let li_checkbox = document.createElement("input");
 	li_checkbox.id = "chkbx";
 	li_checkbox.type = "checkbox";
