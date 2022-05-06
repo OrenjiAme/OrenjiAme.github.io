@@ -1,5 +1,6 @@
 let cnt = 0;
 const target_id = ["unallocated","am","pm","finished", "tomorrow"];
+const target_opt = ["autosave","showdate","details"];
 
 //現在日時を初期値に設定
 window.addEventListener('load', () => {
@@ -73,7 +74,15 @@ function set_schedule(cookie_array){
 }
 
 function get_options(){
+	result = {};
+	target_opt.forEach(id =>{
+		let flag = document.getElementById(id).checked;
+		result[id] = flag;
+	});
+	console.log(result);
+	return result
 }
+get_options();
 
 function save_options(){
 	let options_array = get_options()
