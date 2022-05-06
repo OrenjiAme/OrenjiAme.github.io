@@ -73,8 +73,8 @@ function setschedule(cookie_array){
 			document.getElementById(id).insertBefore(i,0);
 		});
 		*/
-		console.log(cookie_array);
 	});
+	cookie_array.forEach(i => console.log(i));
 }
 
 function regit(){
