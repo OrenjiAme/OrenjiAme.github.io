@@ -1,4 +1,5 @@
 var cnt = 0;
+const target_id = ["unallocated","am","pm","finished", "tomorrow"];
 
 //現在日時を初期値に設定
 window.addEventListener('load', () => {
@@ -8,7 +9,6 @@ window.addEventListener('load', () => {
 });
 
 function make_savearray(){
-	const target_id = ["unallocated","am","pm","finished", "tomorrow"]
 	var result = {"unallocated" : [], "am" : [], "pm" : [],
 "finished" : [], "tomorrow" : []};
 	target_id.forEach(id =>{
@@ -64,9 +64,19 @@ function load_cookie(){
 		return result;
 	}
 	
-	console.log(getCookie());
+	//console.log(getCookie());
+	setschejule(getCookie());
 }
-load_cookie();
+
+
+function setschejule(cookie_array){
+	target_id.forEach(id => {
+		cookie_array[id].forEach(i =>{
+			document.getElementById(id).insertBefore(i,0);
+		});
+	});
+}
+
 function regit(){
 	var result = []
 	const tgt = ["date","title","text"]
@@ -104,12 +114,13 @@ function make_li(result){
 }
 
 function set2fig(num) {
-   // 桁数が1桁だったら先頭に0を加えて2桁に調整する
-   var ret;
-   if( num < 10 ) { ret = "0" + num; }
-   else { ret = num; }
-   return ret;
+	// 桁数が1桁だったら先頭に0を加えて2桁に調整する
+	var ret;
+	if( num < 10 ) { ret = "0" + num; }
+	else { ret = num; }
+	return ret;
 }
+
 var date = "";
 function showDate(){
 	const nowTime = new Date();
@@ -128,30 +139,30 @@ function showDate(){
 
 function showClock() {
 	var nowTime = new Date();
-   	var nowHour = set2fig( nowTime.getHours() );
+	var nowHour = set2fig( nowTime.getHours() );
 	var nowMin  = set2fig( nowTime.getMinutes() );
-   	var nowSec  = set2fig( nowTime.getSeconds() );
-   	var msg = "現在、" + date + nowHour + "時" + nowMin + "分" + "です。";
-   	document.getElementById("RealtimeClockArea").innerHTML = msg;
-   	setInterval('showClock()',60 * 1000);
+	var nowSec  = set2fig( nowTime.getSeconds() );
+	var msg = "現在、" + date + nowHour + "時" + nowMin + "分" + "です。";
+	document.getElementById("RealtimeClockArea").innerHTML = msg;
+	setInterval('showClock()',60 * 1000);
 }
 
 function main(){
-document.querySelectorAll('.drag-list li').forEach (elm => {
-	elm.ondragstart = function () {
-		//console.log(elm);
-		event.dataTransfer.setData('text/plain',event.target.id);
-	};
-
-	elm.ondragover = function () {
-		event.preventDefault();
-		this.style.borderTop = '2px solid blue';
-	};
-
-	elm.ondragleave = function () {
+	document.querySelectorAll('.drag-list li').forEach (elm => {
+		elm.ondragstart = function () {
+			//console.log(elm);
+			event.dataTransfer.setData('text/plain',event.target.id);
+		};
+		
+		elm.ondragover = function () {
+			event.preventDefault();
+			this.style.borderTop = '2px solid blue';
+		};
+		
+		elm.ondragleave = function () {
 		this.style.borderTop = '';
 	};
-
+	
 	elm.ondrop = function () {
 		event.preventDefault();
 		let id = event.dataTransfer.getData('text/plain');
@@ -160,9 +171,10 @@ document.querySelectorAll('.drag-list li').forEach (elm => {
 		this.parentNode.insertBefore(elm_drag, this);
 		this.style.borderTop = '';
 	};
-
+	
 });
 }
 
 showDate();
+load_cookie();
 main();
