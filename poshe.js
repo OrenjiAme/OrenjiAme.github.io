@@ -194,8 +194,8 @@ function set_dragevent(){
 	let autosave = document.getElementById("autosave").checked;
 	if(autosave){
 		save_cookie();
-		save_options();
 	};
+	save_options();
 }
 
 $('#showdate').click(function() {
@@ -211,6 +211,6 @@ $('#details').click(function() {
 */
 
 showDate();
-set_option();
+set_options();
 set_schedule(get_Cookie());
 set_dragevent();
