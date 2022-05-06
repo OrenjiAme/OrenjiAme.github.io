@@ -89,7 +89,11 @@ function save_options(){
 }
 
 function set_options(cookie_array){
-	options_array = cookie_array["options"];
+	try {
+		options_array = cookie_array["options"];
+	} catch (error) {
+		save_options();
+	}
 }
 
 function regit(){
@@ -207,5 +211,6 @@ $('#details').click(function() {
 */
 
 showDate();
+set_option();
 set_schedule(get_Cookie());
 set_dragevent();
