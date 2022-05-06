@@ -20,26 +20,27 @@ function make_savearray(){
 	return result;
 }
 
+function setCookie(name, json){
+	let cookie = '';
+	let expire = '';
+	let period = '';
+	//Cookieの保存名と値を指定
+	cookies = name + '=' + JSON.stringify(json) + ';';
+	//Cookieを保存するパスを指定
+	cookies += 'path=/;';
+	//Cookieを保存する期間を指定
+	period = 365 * 5; //保存日数 2038年問題に注意
+	expire = new Date();
+	expire.setTime(expire.getTime() + 1000 * 3600 * 24 * period);
+	expire.toUTCString();
+	cookies += 'expires=' + expire + ';';
+	//Cookieを保存する
+	document.cookie = cookies;
+};
+
 function save_cookie(save_array){
 	const result = make_savearray();
-	console.log(result);
-	const setCookie = (name, json)=>{
-		let cookie = '';
-		let expire = '';
-		let period = '';
-		//Cookieの保存名と値を指定
-		cookies = name + '=' + JSON.stringify(json) + ';';
-		//Cookieを保存するパスを指定
-		cookies += 'path=/;';
-		//Cookieを保存する期間を指定
-		period = 365 * 5; //保存日数 2038年問題に注意
-		expire = new Date();
-		expire.setTime(expire.getTime() + 1000 * 3600 * 24 * period);
-		expire.toUTCString();
-		cookies += 'expires=' + expire + ';';
-		//Cookieを保存する
-		document.cookie = cookies;
-	};
+	//console.log(result);
 	setCookie("schedule",result);
 	//console.log(document.cookie);
 }
@@ -61,12 +62,25 @@ function getCookie(){
 }
 
 function setschedule(cookie_array){
-	cookie_array = cookie_array["schedule"];
+	schedule_array = cookie_array["schedule"];
 	target_id.forEach(id => {
-		cookie_array[id].forEach(i =>{
+		schedule_array[id].forEach(i =>{
 			document.getElementById(id).insertBefore(i,0);
 		});
 	});
+}
+
+function get_options(){
+
+}
+
+function saveOptions(){
+	let options_array = get_options()
+	setCookie("options",options_array);
+}
+
+function setOptions(cookie_array){
+	options_array = cookie_array["options"];
 }
 
 function regit(){
@@ -168,4 +182,5 @@ function main(){
 }
 
 showDate();
+setschedule();
 main();
