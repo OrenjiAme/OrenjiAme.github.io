@@ -180,7 +180,7 @@ function set_dragevent(){
 			this.style.borderTop = '';
 		};
 	});
-	let autosave = document.getElementById("autosave").checked();
+	let autosave = document.getElementById("autosave").checked;
 	console.log(autosave);
 	if(autosave){save_cookie()};
 }
