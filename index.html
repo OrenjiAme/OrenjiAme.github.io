@@ -15,37 +15,36 @@
 	<button onclick="regit()">登録</button><button onclick="save_cookie()">保存</button><br>
 	<textarea id="text" placeholder="ここに詳細を入力してください。" rows="3"></textarea>
 </details>
-
-<h3>【未割当】</h3>
-<ul class="drag-list" id="unallocated">
-	<li style="border:0;list-style-type:none;">&nbsp;</li>
-</ul>
-
-<h3>【午前】</h3>
-<ul class="drag-list" id ="am">
-	<li style="border:0;list-style-type:none;">&nbsp;</li>
-</ul>
-
-<h3>【午後】</h3>
-<ul class="drag-list" id="pm">
-	<li style="border:0;list-style-type:none;">&nbsp;</li>
-</ul>
-
-<h3>【明日以降】</h3>
-<ul class="drag-list" id="tomorrow">
-	<li style="border:0;list-style-type:none;">&nbsp;</li>
-</ul>
-
-<h3>【完了済み】</h3>
-<ul class="drag-list" id="finished">
-	<li style="border:0;list-style-type:none;">&nbsp;</li>
-</ul>
-
-<h3>ゴミ箱(保存されません)</h3>
-<ul class="drag-list" id="dustbox">
-	<li style="border:0;list-style-type:none;">&nbsp;</li>
-</ul>
-
+<details open><summary>【未割当】</summary>
+	<ul class="drag-list" id="unallocated">
+		<li style="border:0;list-style-type:none;">&nbsp;</li>
+	</ul>
+</details>
+<details open><summary>【午前】</summary>
+	<ul class="drag-list" id="am">
+		<li style="border:0;list-style-type:none;">&nbsp;</li>
+	</ul>
+</details>
+<details open><summary>【午後】</summary>
+	<ul class="drag-list" id="pm">
+		<li style="border:0;list-style-type:none;">&nbsp;</li>
+	</ul>
+</details>
+<details open><summary>【明日以降】</summary>
+	<ul class="drag-list" id="tomorrow">
+		<li style="border:0;list-style-type:none;">&nbsp;</li>
+	</ul>
+</details>
+<details open><summary>【完了】</summary>
+	<ul class="drag-list" id="finished">
+		<li style="border:0;list-style-type:none;">&nbsp;</li>
+	</ul>
+</details>
+<details open><summary>ゴミ箱(保存されません)</summary>
+	<ul class="drag-list">
+		<li style="border:0;list-style-type:none;">&nbsp;</li>
+	</ul>
+</details>
 <br>
 
 <input type="checkbox" id="switch1">オートセーブ機能(実験的)<br>
