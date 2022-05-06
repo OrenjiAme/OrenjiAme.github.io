@@ -51,7 +51,7 @@ function getCookie(){
 		cookie_array = cookies.split(";");
 		//Cookieを配列に分割してJSONに変換する
 		if(cookies){
-			cookieArray.forEach(data => {
+			cookie_aArray.forEach(data => {
 				data = data.split('=');
 				result[data[0]] = JSON.parse(data[1]);
 			});
