@@ -1,4 +1,4 @@
-var cnt = 0;
+let cnt = 0;
 const target_id = ["unallocated","am","pm","finished", "tomorrow"];
 
 //現在日時を初期値に設定
@@ -9,10 +9,10 @@ window.addEventListener('load', () => {
 });
 
 function make_savearray(){
-	var result = {"unallocated" : [], "am" : [], "pm" : [],
+	let result = {"unallocated" : [], "am" : [], "pm" : [],
 "finished" : [], "tomorrow" : []};
 	target_id.forEach(id =>{
-		var temp = document.getElementById(id);
+		let temp = document.getElementById(id);
 		temp.querySelectorAll(".elements").forEach(i =>
 		result[id].push(i.textContent));	
 	});
@@ -46,17 +46,13 @@ function save_cookie(save_array){
 
 function getCookie(){
 		let cookies = '';
-		let cookieArray = new Array();
-		let result = new Array();
-		//Cookieを取得する
+		let result = {};
 		cookies = document.cookie;
+		cookie_array = cookies.split(";");
 		//Cookieを配列に分割してJSONに変換する
 		if(cookies){
-			cookieArray = cookies.split(';');
 			cookieArray.forEach(data => {
 				data = data.split('=');
-				//data[0]: Cookieの名前（例では「user」）
-				//data[1]: Cookieの値（例では「json」）
 				result[data[0]] = JSON.parse(data[1]);
 			});
 		}
@@ -78,21 +74,21 @@ function setschedule(cookie_array){
 }
 
 function regit(){
-	var result = []
+	let result = []
 	const tgt = ["date","title","text"]
 	tgt.forEach(element => result.push(document.getElementById(element).value));
 	//console.log(Date(result[0]));
-	result[0] = result[0].replace("2022-","").replace("-","/").replace(/^0+/, '');
+	result[0] = result[0].replace("2022-","").replace("-","/").replace(/^0+/, '').replace("T","");
 	return make_li(result)
 }
 
 function make_li(result){
-	var li_object = document.createElement("li");
+	let li_object = document.createElement("li");
 	li_object.id = ++cnt;
 	li_object.className = "elements";
 	li_object.draggable = true;
 	const li_text = document.createTextNode(result.join(" "));
-	var li_checkbox = document.createElement("input");
+	let li_checkbox = document.createElement("input");
 	li_checkbox.id = "chkbx";
 	li_checkbox.type = "checkbox";
 	li_object.appendChild(li_checkbox);
@@ -115,13 +111,13 @@ function make_li(result){
 
 function set2fig(num) {
 	// 桁数が1桁だったら先頭に0を加えて2桁に調整する
-	var ret;
+	let ret;
 	if( num < 10 ) { ret = "0" + num; }
 	else { ret = num; }
 	return ret;
 }
 
-var date = "";
+let date = "";
 function showDate(){
 	const nowTime = new Date();
 	const nowMonth = nowTime.getMonth() + 1;
@@ -138,11 +134,11 @@ function showDate(){
 
 
 function showClock() {
-	var nowTime = new Date();
-	var nowHour = set2fig( nowTime.getHours() );
-	var nowMin  = set2fig( nowTime.getMinutes() );
-	var nowSec  = set2fig( nowTime.getSeconds() );
-	var msg = "現在、" + date + nowHour + "時" + nowMin + "分" + "です。";
+	let nowTime = new Date();
+	let nowHour = set2fig( nowTime.getHours() );
+	let nowMin  = set2fig( nowTime.getMinutes() );
+	let nowSec  = set2fig( nowTime.getSeconds() );
+	let msg = "現在、" + date + nowHour + "時" + nowMin + "分" + "です。";
 	document.getElementById("RealtimeClockArea").innerHTML = msg;
 	setInterval('showClock()',60 * 1000);
 }
