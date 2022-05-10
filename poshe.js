@@ -42,7 +42,7 @@ function set_cookie(name, json){
 function save_cookie(save_array){
 	const result = make_savearray();
 	//console.log(result);
-	set_Cookie("schedule", result);
+	set_cookie("schedule", result);
 	//console.log(document.cookie);
 }
 
