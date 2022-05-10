@@ -62,13 +62,12 @@ function get_cookie(){
 }
 
 function set_schedule(cookie_array){
-	try {
-		schedule_array = cookie_array["schedule"];
-	} catch (err) {
-		return 
-	}
+	schedule_array = cookie_array["schedule"];
 	target_id.forEach(id => {
-		T_array = schedule_array[id].reverse()
+		try {
+			T_array = schedule_array[id].reverse()	
+		} catch (error) {}
+		
 		T_array.forEach(text =>{
 			make_li(text,id);
 		});
