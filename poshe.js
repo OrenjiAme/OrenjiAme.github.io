@@ -22,7 +22,6 @@ function make_savearray(){
 }
 
 function set_cookie(name, json){
-	let cookie = '';
 	let expire = '';
 	let period = '';
 	//Cookieの保存名と値を指定
@@ -63,7 +62,11 @@ function get_cookie(){
 }
 
 function set_schedule(cookie_array){
-	schedule_array = cookie_array["schedule"];
+	try {
+		schedule_array = cookie_array["schedule"];
+	} catch (err) {
+		return 
+	}
 	target_id.forEach(id => {
 		T_array = schedule_array[id].reverse()
 		T_array.forEach(text =>{
