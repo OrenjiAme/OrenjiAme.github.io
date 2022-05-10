@@ -21,7 +21,7 @@ function make_savearray(){
 	return result;
 }
 
-function set_Cookie(name, json){
+function set_cookie(name, json){
 	let cookie = '';
 	let expire = '';
 	let period = '';
@@ -37,16 +37,16 @@ function set_Cookie(name, json){
 	cookies += 'expires=' + expire + ';';
 	//Cookieを保存する
 	document.cookie = cookies;
-};
+}
 
 function save_cookie(save_array){
 	const result = make_savearray();
 	//console.log(result);
-	set_Cookie("schedule",result);
+	set_Cookie("schedule", result);
 	//console.log(document.cookie);
 }
 
-function get_Cookie(){
+function get_cookie(){
 		let cookies = '';
 		let result = {};
 		cookies = document.cookie;
@@ -85,7 +85,7 @@ function get_options(){
 
 function save_options(){
 	let options_array = get_options()
-	setCookie("options",options_array);
+	set_cookie("options", options_array);
 }
 
 function set_options(cookie_array){
