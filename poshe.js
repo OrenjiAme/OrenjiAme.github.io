@@ -212,5 +212,5 @@ $('#details').click(function() {
 
 showDate();
 set_options();
-set_schedule(get_Cookie());
+set_schedule(get_cookie());
 set_dragevent();
