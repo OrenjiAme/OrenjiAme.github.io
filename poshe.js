@@ -66,11 +66,11 @@ function set_schedule(cookie_array){
 	target_id.forEach(id => {
 		try {
 			T_array = schedule_array[id].reverse()	
-		} catch (error) {}
+			T_array.forEach(text =>{
+				make_li(text,id);
+			});
+		} catch (error) {return}
 		
-		T_array.forEach(text =>{
-			make_li(text,id);
-		});
 	});
 	set_dragevent();
 }
