@@ -57,7 +57,7 @@ function get_cookie(){
 				result[data[0]] = JSON.parse(data[1]);
 			});
 		}
-		console.log(result["schedule"]);
+		console.log(result);
 		return result
 }
 
