@@ -9,6 +9,7 @@ window.addEventListener('load', () => {
 	document.getElementById('date').value = now.toISOString().slice(0, -8);
 });
 
+//Cookie格納用配列を生成
 function make_savearray(){
 	let result = {"unallocated" : [], "am" : [], "pm" : [],
 "finished" : [], "tomorrow" : []};
@@ -21,6 +22,7 @@ function make_savearray(){
 	return result;
 }
 
+//Cookieのパラメータ、配列をjson変換する。
 function set_cookie(name, json){
 	let expire = '';
 	let period = '';
@@ -38,6 +40,7 @@ function set_cookie(name, json){
 	document.cookie = cookies;
 }
 
+//cookie保存
 function save_cookie(save_array){
 	const result = make_savearray();
 	//console.log(result);
@@ -45,11 +48,13 @@ function save_cookie(save_array){
 	//console.log(document.cookie);
 }
 
+//Cookie取得
 function get_cookie(){
 		let cookies = '';
 		let result = {};
 		cookies = document.cookie;
 		cookie_array = cookies.split(";");
+		console.log(cookies);
 		//Cookieを配列に分割してJSONに変換する
 		if(cookies){
 			cookie_array.forEach(data => {
@@ -61,6 +66,7 @@ function get_cookie(){
 		return result
 }
 
+//Cookieからスケジュールを登録
 function set_schedule(cookie_array){
 	schedule_array = cookie_array["schedule"];
 	console.log(schedule_array);
@@ -73,6 +79,7 @@ function set_schedule(cookie_array){
 	set_dragevent();
 }
 
+//options(ページ下部)取得
 function get_options(){
 	result = {};
 	target_opt.forEach(id =>{
