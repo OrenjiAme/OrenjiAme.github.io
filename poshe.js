@@ -62,7 +62,7 @@ function get_cookie(){
 }
 
 function set_schedule(cookie_array){
-	schedule_array = cookie_array["schedule"];]
+	schedule_array = cookie_array["schedule"];
 	console.log(schedule_array);
 	target_id.forEach(id => {
 		T_array = schedule_array[id].reverse();
