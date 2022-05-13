@@ -57,18 +57,18 @@ function get_cookie(){
 				result[data[0]] = JSON.parse(data[1]);
 			});
 		}
-		//console.log(result["schedule"]);
+		console.log(result["schedule"]);
 		return result
 }
 
 function set_schedule(cookie_array){
-	schedule_array = cookie_array["schedule"];
+	schedule_array = cookie_array["schedule"];]
+	console.log(schedule_array);
 	target_id.forEach(id => {
 		T_array = schedule_array[id].reverse();
 		T_array.forEach(text =>{
 			make_li(text,id);
 		});
-		
 	});
 	set_dragevent();
 }
