@@ -120,6 +120,7 @@ function regit(){
 	const txt = result.join(" ");
 	make_li(txt,"unallocated");
 	set_dragevent();
+	save_options();
 }
 
 function make_li(result,id_name){
