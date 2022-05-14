@@ -215,7 +215,7 @@ function set_dragevent(){
 }
 
 $('#showdate').click(function() {
-	if(this.checked){$("#datearea").show()}
+	if(this.checked){$("#datearea").show();showDate();}
 	else{$("#datearea").hide();}
 });
 
@@ -226,7 +226,6 @@ $('#details').click(function() {
 });
 */
 
-showDate();
 set_options();
 set_schedule(get_cookie());
 set_dragevent();
