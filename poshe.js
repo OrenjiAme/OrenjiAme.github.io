@@ -59,7 +59,7 @@ function get_cookie(){
 		if(cookies){
 			cookie_array.forEach(data => {
 				data = data.split('=');
-				console.log(data);
+				data[0] = data[0].trim(" ");
 				result[data[0]] = JSON.parse(data[1]);
 			});
 		}
