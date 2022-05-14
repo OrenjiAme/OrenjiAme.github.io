@@ -45,6 +45,7 @@ function save_cookie(){
 	const result = make_savearray();
 	//console.log(result);
 	set_cookie("schedule", result);
+	save_options();
 	//console.log(document.cookie);
 }
 
