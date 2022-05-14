@@ -41,7 +41,7 @@ function set_cookie(name, json){
 }
 
 //cookie保存
-function save_cookie(save_array){
+function save_cookie(){
 	const result = make_savearray();
 	//console.log(result);
 	set_cookie("schedule", result);
@@ -54,11 +54,12 @@ function get_cookie(){
 		let result = {};
 		cookies = document.cookie;
 		cookie_array = cookies.split(";");
-		console.log(cookies);
+		console.log(cookie_array);
 		//Cookieを配列に分割してJSONに変換する
 		if(cookies){
 			cookie_array.forEach(data => {
 				data = data.split('=');
+				console.log(data);
 				result[data[0]] = JSON.parse(data[1]);
 			});
 		}
@@ -109,8 +110,8 @@ function regit(){
 	tgt.forEach(element => result.push(document.getElementById(element).value));
 	//console.log(Date(result[0]));
 	result[0] = result[0].replace("2022-","").replace("-","/").replace(/^0+/, '').replace("T","");
-	result.join(" ");
-	make_li(result,"unallocated");
+	const txt = result.join(" ");
+	make_li(txt,"unallocated");
 	set_dragevent();
 }
 
