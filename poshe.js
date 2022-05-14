@@ -54,7 +54,6 @@ function get_cookie(){
 		let result = {};
 		cookies = document.cookie;
 		cookie_array = cookies.split(";");
-		console.log(cookie_array);
 		//Cookieを配列に分割してJSONに変換する
 		if(cookies){
 			cookie_array.forEach(data => {
@@ -63,14 +62,12 @@ function get_cookie(){
 				result[data[0]] = JSON.parse(data[1]);
 			});
 		}
-		console.log(result);
 		return result
 }
 
 //Cookieからスケジュールを登録
 function set_schedule(cookie_array){
 	schedule_array = cookie_array["schedule"];
-	console.log(schedule_array);
 	target_id.forEach(id => {
 		T_array = schedule_array[id].reverse();
 		T_array.forEach(text =>{
@@ -110,6 +107,7 @@ function regit(){
 	tgt.forEach(element => result.push(document.getElementById(element).value));
 	//console.log(Date(result[0]));
 	result[0] = result[0].replace("2022-","").replace("-","/").replace(/^0+/, '').replace("T","");
+	console.log(result);
 	const txt = result.join(" ");
 	make_li(txt,"unallocated");
 	set_dragevent();
