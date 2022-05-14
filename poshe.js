@@ -135,7 +135,6 @@ function make_li(result,id_name){
 			const tgt = document.getElementById("unallocated");
 			tgt.insertBefore(li_object,tgt.firstChild);
 		}
-
 	});
 }
 
