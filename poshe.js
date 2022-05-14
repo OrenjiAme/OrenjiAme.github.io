@@ -96,6 +96,15 @@ function save_options(){
 function set_options(cookie_array){
 	try {
 		options_array = cookie_array["options"];
+		target_opt.forEach(id => {
+			const tgt = document.getElementById(id);
+			if(options_array[id] == "true"){
+				tgt.checked = true;
+			}
+			if(options_array[id] == "false"){
+				tgt.checked = false;
+			}
+		});
 	} catch (error) {
 		save_options();
 	}
