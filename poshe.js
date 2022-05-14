@@ -106,7 +106,7 @@ function regit(){
 	const tgt = ["date","title","text"]
 	tgt.forEach(element => result.push(document.getElementById(element).value));
 	//console.log(Date(result[0]));
-	result[0] = result[0].replace("2022-","").replace("-","/").replace(/^0+/, '').replace("T","");
+	result[0] = result[0].replace("2022-","").replace("-","/").replace("T"," ");
 	console.log(result);
 	const txt = result.join(" ");
 	make_li(txt,"unallocated");
