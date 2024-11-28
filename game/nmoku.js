@@ -81,9 +81,9 @@ function play(n){//ボタンを押したとき、コマを配置する。nは行
     else tgt = 2;
     if(set(n)){
         write_table();
-        write_db();
         if(check(location_i,location_j,tgt))clear();
         else{turn++;change_turn();}
+        write_db();
     }
     else alert("そこには置けません。");
 }
