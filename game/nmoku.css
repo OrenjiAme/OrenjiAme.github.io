@@ -1,0 +1,56 @@
+table{
+  border-collapse:separate;
+  border-spacing: 5px;
+  max-width: 100%;
+}
+
+table,table td{
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+table td{
+  background-color: rgb(243, 236, 194);
+  border:solid 1px rgb(243, 236, 194);
+}
+
+input{
+  border: rgb(249, 213, 110);
+  background-color: rgb(249, 213, 110);
+  font-size: large;
+  border-color: rgb(249, 213, 110);
+  border-radius: 30px;
+}
+
+.space{
+    margin-right: 15px;
+    margin-left: 15px;
+    font-size: xx-large;
+}
+p.comment{
+  border: double 2px;
+  border-color: rgb(249, 213, 110);
+}
+
+#turnA{
+  color: rgb(232, 83, 91);
+}
+
+.o{
+  font-family: Yu Gothic;
+  color: rgb(232, 83, 91);
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+#turnB{
+  color:rgb(20, 177, 171);
+}
+
+.x{
+  font-family:Meiryo UI;
+  color:rgb(20, 177, 171);
+  font-weight: bold;
+  font-size: xx-large;
+}

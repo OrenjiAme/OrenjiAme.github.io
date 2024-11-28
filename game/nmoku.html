@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コネ4</title>
+    <link rel="stylesheet" href="nmoku.css">
+</head>
+<body>
+    <h1>4目並べ(コネクトフォー)</h1>
+    <p class="comment">先手と後手が交互にコマを一番下から積み重ねて、先に縦・横・斜めどれかに4つ並べた方が勝ちです。</p>
+    <h2 id="win"> </h2>
+    <input type="button" value="リセット！" onclick="reset()"><br>
+    <input type="button" value="リバース！" onclick="reverse()"><br>
+    <div id = "turnA">先手のターンです。</div>
+    <div id = "turnB">後手のターンです。</div>
+    <script>
+        document.getElementById("turnA").style.display = "block";
+        document.getElementById("turnB").style.display = "none";
+    </script>
+    <br>
+    <table id = "game">
+        <script>
+            for(var i = 0; i <= 6; i++){
+                document.write('<th><input type="button" value="置く！" onclick="play(' + String(i) + ')"></th>');
+            }
+            for(var i = 1; i <= 6; i++){
+                document.write("<tr>");                
+                for(var j = 1; j <= 7; j++){
+                    document.write('<td><span class = "space"></span></td>');
+                }
+                document.write("</tr>");
+            }
+        </script>
+    </table>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+        
+        <script>
+            var firebaseConfig = {
+            apiKey: "AIzaSyB0ZAgUHK3pbpHVAZWgsh7ZDEmGhZRpxbA",
+            authDomain: "connect4-3a65a.firebaseapp.com",
+            projectId: "connect4-3a65a",
+            storageBucket: "connect4-3a65a.appspot.com",
+            messagingSenderId: "547328919927",
+            appId: "1:547328919927:web:dd313688f191d84b6a7972",
+            measurementId: "G-CD8CFN5ENV"
+            };
+        </script>
+        <script src="nmoku.js"></script>
+</body>
+</html>
