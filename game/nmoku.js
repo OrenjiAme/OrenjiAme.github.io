@@ -56,8 +56,8 @@ function write_table(){//配列 game_tableをhtmlに書き込む
     for(var i = 1; i < 7; i++){
         str += "<tr>";                
         for(var j = 0; j < 7; j++){
-            if(game_table[i][j] == 1){str += '<td><span class = "o">' + "🐟" + '</span></td>';}
-            else if(game_table[i][j] == 2){str += '<td><span class = "x">' + "🐧" + '</span></td>';}
+            if(game_table[i][j] == 1){str += '<td><span class = "o">' + "🍋" + '</span></td>';}
+            else if(game_table[i][j] == 2){str += '<td><span class = "x">' + "🍊" + '</span></td>';}
             else str += '<td><span class = "space"></span></td>';
         }
         str += "</tr>";
@@ -81,9 +81,9 @@ function play(n){//ボタンを押したとき、コマを配置する。nは行
     else tgt = 2;
     if(set(n)){
         write_table();
-        write_db();
         if(check(location_i,location_j,tgt))clear();
         else{turn++;change_turn();}
+        write_db();
     }
     else alert("そこには置けません。");
 }
@@ -180,5 +180,5 @@ function clear(){
         alert("後手の勝ちです！");
         document.getElementById("win").innerHTML = "後手の勝ち：" + String(turn+1) + "ターン。スタートを押して下さい";;
     }
-    reset();
+    //reset();
 }
